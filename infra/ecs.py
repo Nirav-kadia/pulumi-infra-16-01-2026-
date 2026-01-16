@@ -19,13 +19,13 @@ task_definition = aws.ecs.TaskDefinition(
         django_repo.repository_url,
         db.address,
     ).apply(lambda args: f"""
-    [{
+    [{{
         "name": "django",
         "image": "{args[0]}:latest",
-        "portMappings": [{
+        "portMappings": [{{
             "containerPort": 8000,
             "protocol": "tcp"
-        }],
+        }}],
         "essential": true,
         "environment": [
             {{"name": "DB_HOST", "value": "{args[1]}"}},
@@ -33,7 +33,7 @@ task_definition = aws.ecs.TaskDefinition(
             {{"name": "DB_USER", "value": "django"}},
             {{"name": "DB_PASSWORD", "value": "supersecret"}}
         ]
-    }]
+    }}]
     """),
 )
 

@@ -6,9 +6,11 @@ db = aws.rds.Instance(
     engine_version="13.20",
     instance_class="db.t3.micro",
     allocated_storage=20,
-    name="djangodb",
+
+    db_name="djangodb",
     username="django",
     password="supersecret",
-    skip_final_snapshot=True,
-)
 
+    skip_final_snapshot=True,
+    publicly_accessible=False,
+)
