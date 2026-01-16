@@ -13,7 +13,7 @@ jobs:
       - uses: pulumi/actions@v5
         with:
           command: up
-          stack-name: nirav-kadia/django-ecs/dev
+          stack-name: Nirav-kadia-org/infra_for_django/dev
           work-dir: infra
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
