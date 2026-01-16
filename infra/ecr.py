@@ -1,3 +1,7 @@
 import pulumi_aws as aws
 
-repo = aws.ecr.Repository("django-repo")
+django_repo = aws.ecr.Repository(
+    "django-ecr-repo",
+    image_scanning_configuration={"scanOnPush": True},
+)
+
